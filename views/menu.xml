@@ -1,0 +1,29 @@
+<odoo>
+    <data>
+        <menuitem name="Manufacturing" id="menu_manufacturing_root">
+
+        <menuitem name="Orders" id="menu_manufacturing_order"
+            parent="menu_manufacturing_root"
+            action="manufacturing.action_view_orders"
+            sequence="10"/>
+
+        <menuitem name="Order Categories" id="menu_manufacturing_category"
+            parent="menu_manufacturing_root"
+            action="manufacturing.action_view_order_categories"
+            sequence="20"/>
+
+        <record id="action_view_orders" model="ir.actions.act_window">
+            <field name="name">Orders</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">manufacturing.order</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record id="action_view_order_categories" model="ir.actions.act_window">
+            <field name="name">Order Categories</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">manufacturing.order.category</field>
+            <field name="view_mode">tree,form,kanban</field>
+        </record>
+    </data>
+</odoo>
