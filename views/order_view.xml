@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+    <record id='order_view_action' model='ir.actions.act_window'>
+        <field name="name">Order</field>
+        <field name="res_model">manufacturing.order</field>
+        <field name="view_mode">tree,form,kanban,search,calendar</field>
+    </record>
+
+    <record id='order_category_view_action' model='ir.actions.act_window'>
+        <field name="name">Category</field>
+        <field name="res_model">manufacturing.order.category</field>
+        <field name="view_mode">tree,form,kanban,search</field>
+    </record>
+
+    <menuitem name="Glass Module" id="glass_module_base_menu" />
+
+    <menuitem name="Orders" id="glass_module_order"
+    parent="glass_module_base_menu"
+    action="order_view_action"/>
+
+    <menuitem name="Category" id="glass_module_order_category"
+    parent="glass_module_base_menu"
+    action="order_category_view_action"/>
+
+
+    <!-- Tree(list) View -->
+    <record id="order_view_tree" model="ir.ui.view">
+        <field name="name">Order List</field>
+        <field name="model">manufacturing.order</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="manufacturing_date"/>
+                <field name="order_date"/>
+                <field name="shipping_date"/>
+                <field name="order_category_id"/>
+            </tree>
+        </field>
+    </record>
+    <!-- Form(list) View -->
+    <record id="view_order_form" model="ir.ui.view">
+        <field name="name">Order Form View</field>
+        <field name="model">manufacturing.order</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="name"/>
+                    <field name="manufacturing_date"/>
+                    <field name="shipping_date"/>
+                    <field name="order_date"/>
+                    <field name="product_width"/>
+                    <field name="product_height"/>
+                    <field name="order_category_id"/>
+                </group>
+            </form>
+        </field>
+    </record>
+    <!-- Kanban(list) View -->
+    <record id="view_order_kanban" model="ir.ui.view">
+        <field name="name">Order Kanban View</field>
+        <field name="model">manufacturing.order</field>
+        <field name="arch" type="xml">
+            <kanban>
+                <field name="name"/>
+                <field name="order_category_id"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_content">
+                            <div class="oe_kanban_global_click">
+                                <div class="oe_kanban_details">
+                                    <div class="oe_kanban_title">
+                                        <field name="name"/>
+                                    </div>
+                                    <div class="oe_kanban_content">
+                                        <field name="order_category_id"/>
+                                        <field name="order_date"/>
+                                        <field name="shipping_date"/>
+                                        <field name="product_width"/>
+                                        <field name="product_height"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="view_order_search" model="ir.ui.view">
+        <field name="name">Order Search View</field>
+        <field name="model">manufacturing.order</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="order_date"/>
+                <field name="shipping_date"/>
+                <field name="order_category_id"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_manufacturing_order_calendar" model="ir.ui.view">
+        <field name="name">Manufacturing Order Calendar</field>
+        <field name="model">manufacturing.order</field>
+        <field name="arch" type="xml">
+            <calendar string="Manufacturing Orders" date_start="manufacturing_date" date_stop="shipping_date">
+                <field name="name"/>
+                <field name="manufacturing_date"/>
+                <field name="shipping_date"/>
+                <field name="order_category_id"/>
+            </calendar>
+        </field>
+    </record>
+
+    </data>
+</odoo>

@@ -1,41 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <odoo>
+    <data>
 
-    <record id="view_order_category_form" model="ir.ui.view">
-        <field name="name">Order Category Form</field>  
-        <field name="model">manufacturing.order.category</field>  
-        <field name="arch" type="xml">  
-            <form string="Order Category">  
-                <group>
+        <record model="ir.ui.view" id="order_category_tree_view">
+            <field name="name">Order Category Tree View</field>
+            <field name="model">manufacturing.order.category</field>
+            <field name="arch" type="xml">
+                <tree>
                     <field name="name"/>
                     <field name="description"/>
-                </group>
-            </form>
-        </field>
-    </record>
+                    <field name="stage"/>
+                    <field name="operator_id"/>
+                </tree>
+            </field>
+        </record>
 
-    <record id="view_order_category_tree" model="ir.ui.view">
-        <field name="name">Order Category Tree</field>  
-        <field name="model">manufacturing.order.category</field>  
-        <field name="arch" type="xml">  
-            <tree>  
-                <field name="name"/>  
-                <field name="stage"/>  
-                <field name="operator_id"/>  
-            </tree>
-        </field>
-    </record>
+        <record model="ir.ui.view" id="order_category_form_view">
+            <field name="name">Order Category Form View</field>
+            <field name="model">manufacturing.order.category</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group>
+                        <field name="name"/>
+                        <field name="description"/>
+                        <field name="stage"/>
+                        <field name="operator_id"/>
+                    </group>
+                </form>
+            </field>
+        </record>
 
-    <record id="view_order_category_kanban" model="ir.ui.view">
-        <field name="name">Order Category Kanban</field>  
-        <field name="model">manufacturing.order.category</field>  
-        <field name="arch" type="xml"> 
-            <kanban>  
-                <field name="name"/>  
-                <field name="stage"/>  
-                <field name="operator_id"/>  
-            </kanban>
-        </field>
-    </record>
+        <record model="ir.ui.view" id="order_category_search_view">
+            <field name="name">Order Category Search View</field>
+            <field name="model">manufacturing.order.category</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                    <field name="stage"/>
+                    <field name="operator_id"/>
+                </search>
+            </field>
+        </record>
+    </data>
 </odoo>

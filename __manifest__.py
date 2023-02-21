@@ -19,8 +19,9 @@
 
     # always loaded
     'data': [
-        # 'security/ir.model.access.csv',
-        'views/order_category_view.xml',
+        'security/ir.model.access.csv',
+        "views/order_category_view.xml",
+        "views/order_view.xml"
     ],
 
     'installable': True,

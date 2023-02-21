@@ -1,2 +1,3 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_glass_module_glass_module,glass_module.glass_module,model_glass_module_glass_module,base.group_user,1,1,1,1
+access_glass_module_order,glass_module.glass_module,model_manufacturing_order,,1,1,1,1
+access_glass_module_category,glass_module.glass_module,model_manufacturing_order_category,,1,1,1,1
